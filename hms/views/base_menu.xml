@@ -2,11 +2,21 @@
     <menuitem
         id="hms_root_menu"
         name="HMS"
-        web_icon="hms,static/description/icon.png"/>
+        web_icon="hms,static/description/hospital.png"/>
     />
     <menuitem
         id="patient_menu"
         name="Patient"
+        parent="hms_root_menu"
+    />
+    <menuitem
+        id="department_menu"
+        name="Department"
+        parent="hms_root_menu"
+    />
+    <menuitem
+        id="doctor_menu"
+        name="Doctor"
         parent="hms_root_menu"
     />
 </odoo>

@@ -20,3 +20,11 @@ class Patient(models.Model):
     image = fields.Binary()
     address = fields.Text()
     age = fields.Integer()
+    state = fields.Selection([
+        ('undetermined', 'Undetermined'),
+        ('good', 'Good'),
+        ('fair', 'Fair'),
+        ('serious', 'Serious'),
+    ])
+    department_id = fields.Many2one("hms.department", string="Department")
+    doctor_id = fields.Many2one("hms.doctor", string="Doctor")

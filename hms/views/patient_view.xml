@@ -7,8 +7,9 @@
                 <field name="f_name"/>
                 <field name="l_name"/>
                 <field name="age"/>
-                <field name="history"/>
                 <field name="blood"/>
+                <field name="state"/>
+                <field name="doctor_id"/>
             </tree>
         </field>
     </record>
@@ -31,6 +32,8 @@
                             <field name="birth_day"/>
                             <field name="address"/>
                             <field name="age"/>
+                            <field name="department_id"/>
+                            <field name="doctor_id"/>
                         </group>
                         <group string="Additional Information">
                             <field name="history"/>
@@ -38,6 +41,7 @@
                             <field name="blood"/>
                             <field name="pcr"/>
                             <field name="image"/>
+                            <field name="state"/>
                         </group>
                     </group>
                 </sheet>
