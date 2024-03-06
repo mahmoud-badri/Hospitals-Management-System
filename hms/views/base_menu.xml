@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem
+        id="hms_root_menu"
+        name="HMS"
+        web_icon="hms,static/description/icon.png"/>
+    />
+    <menuitem
+        id="patient_menu"
+        name="Patient"
+        parent="hms_root_menu"
+    />
+</odoo>

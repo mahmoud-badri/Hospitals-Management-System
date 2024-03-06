@@ -1,0 +1,57 @@
+<odoo>
+    <record id="patient_view_tree" model="ir.ui.view">
+        <field name="name">patient view</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="f_name"/>
+                <field name="l_name"/>
+                <field name="age"/>
+                <field name="history"/>
+                <field name="blood"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="patient_view_form" model="ir.ui.view">
+        <field name="name">patient form</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div>
+                        <label for="f_name"/>
+                        <h3>
+                            <field name="f_name"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group string="General Information">
+                            <field name="l_name"/>
+                            <field name="birth_day"/>
+                            <field name="address"/>
+                            <field name="age"/>
+                        </group>
+                        <group string="Additional Information">
+                            <field name="history"/>
+                            <field name="cr_ratio"/>
+                            <field name="blood"/>
+                            <field name="pcr"/>
+                            <field name="image"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="patient_action" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="res_model">hms.patient</field>
+    </record>
+    <menuitem
+        id="all_patient_menu"
+        name="All Patient"
+        parent="patient_menu"
+        action="patient_action"
+    />
+</odoo>
