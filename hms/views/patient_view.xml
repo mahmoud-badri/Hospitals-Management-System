@@ -35,7 +35,7 @@
                             <field name="address"/>
                             <field name="age"/>
                             <field name="department_id"/>
-                            <field name="doctor_id"/>
+                            <field name="doctor_id" groups="hms.manager_group"/>
                         </group>
                         <group string="Additional Information">
                             <field name="history"/>

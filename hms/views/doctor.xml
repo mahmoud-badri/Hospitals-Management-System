@@ -35,11 +35,13 @@
         <field name="name">Doctor</field>
         <field name="res_model">hms.doctor</field>
         <field name="view_mode">tree,form</field>
+
     </record>
     <menuitem
         id="doctor_menu_item"
         name="All Doctors"
         parent="doctor_menu"
         action="doctor_action"
+
     />
 </odoo>

@@ -1,0 +1,80 @@
+<odoo>
+    <record id="patient_report" model="ir.actions.report">
+        <field name="name">Patient Report</field>
+        <field name="model">hms.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_hms_patient"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">hms.patient_report_template</field>
+    </record>
+
+    <template id="patient_report_template">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <div class="container mt-4">
+                <h1 class="display-4 text-center mb-4">Patient Status Report</h1>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="font-weight-bold">Name</th>
+                            <td><t t-esc="o.f_name"/></td>
+                            <th class="font-weight-bold">Age</th>
+                            <td><t t-esc="o.age"/></td>
+                        </tr>
+                        <tr>
+                            <th class="font-weight-bold">Department</th>
+                            <td><t t-esc="o.department_id.name"/></td>
+                            <th class="font-weight-bold">Doctors</th>
+                            <td><t t-esc="o.doctor_id.f_name"/></td>
+                        </tr>
+                        <tr>
+                            <th class="font-weight-bold">Image</th>
+                            <td colspan="3">
+                                <img t-att-src="'data:image/png;base64,%s' % o.image" alt="Patient Image" class="img-fluid"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="font-weight-bold">Birth Date</th>
+                            <td><t t-esc="o.birth_day"/></td>
+                            <th class="font-weight-bold">PCR</th>
+                            <td><t t-esc="o.pcr"/></td>
+                        </tr>
+                        <tr>
+                            <th class="font-weight-bold">Blood Type</th>
+                            <td><t t-esc="o.blood"/></td>
+                            <th class="font-weight-bold">Email</th>
+                            <td><t t-esc="o.email"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <h1 class="display-4 text-center mb-4">Log History</h1>
+                <table>
+                    <thead>
+                        <th>Create</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="o.log_history_ids" t-as="rec">
+                            <tr>
+                                <td>
+                                    <t t-esc="rec.created_by"/>
+                                </td>
+                                <td>
+                                    <t t-esc="rec.date"/>
+                                </td>
+                                <td>
+                                    <t t-esc="rec.description"/>
+                                </td>
+                            </tr>
+
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </t>
+</template>
+
+</odoo>
