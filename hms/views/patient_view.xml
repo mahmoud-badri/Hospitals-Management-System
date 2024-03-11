@@ -6,6 +6,7 @@
             <tree>
                 <field name="f_name"/>
                 <field name="l_name"/>
+                <field name="email"/>
                 <field name="age"/>
                 <field name="blood"/>
                 <field name="state"/>
@@ -29,6 +30,7 @@
                     <group>
                         <group string="General Information">
                             <field name="l_name"/>
+                            <field name="email"/>
                             <field name="birth_day"/>
                             <field name="address"/>
                             <field name="age"/>
@@ -44,6 +46,18 @@
                             <field name="state"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Log History">
+
+                            <field name="log_history_ids">
+                                <tree editable="bottom">
+                                    <field name="created_by"/>
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

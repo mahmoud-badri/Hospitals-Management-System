@@ -6,9 +6,10 @@ class Doctor(models.Model):
     _description = "Doctor"
     _rec_name = "f_name"
 
-    f_name = fields.Char("First name")
-    l_name = fields.Char("Last name")
+    f_name = fields.Char("First name", required=True)
+    l_name = fields.Char("Last name", required=True)
     image = fields.Binary()
     department_id = fields.Many2one('hms.department', string='Department')
+    patient_ids = fields.One2many("hms.patient", "doctor_id")
 
 
