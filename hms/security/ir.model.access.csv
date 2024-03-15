@@ -7,6 +7,8 @@ access_doctor_manager,access_doctor_manager,model_hms_doctor,hms.manager_group,1
 access_doctor_user,access_doctor_user,model_hms_doctor,hms.user_group,1,0,0,0
 access_log_history_manager,access_log_history_manager,model_log_history,hms.manager_group,1,1,1,1
 access_log_history_user,access_log_history_user,model_log_history,hms.user_group,1,1,0,0
+access_history,access_history,model_hms_history,,1,1,1,1
+
 
 
 

@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="patient_sequence" model="ir.sequence">
+            <field name="name">Patient Sequence</field>
+            <field name="code">patient_seq</field>
+            <field name="prefix">PAT</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="department_sequence" model="ir.sequence">
+            <field name="name">Department Sequence</field>
+            <field name="code">department_seq</field>
+            <field name="prefix">DEP</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record id="doctor_sequence" model="ir.sequence">
+            <field name="name">Doctor Sequence</field>
+            <field name="code">doctor_seq</field>
+            <field name="prefix">DOC</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

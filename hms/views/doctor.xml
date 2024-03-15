@@ -18,6 +18,10 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
                     <group>
                         <group string="General Information">
                             <field name="f_name"/>
@@ -27,6 +31,11 @@
                         </group>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <fields name="message_follower_ids"/>
+                    <fields name="activity_ids"/>
+                    <fields name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>

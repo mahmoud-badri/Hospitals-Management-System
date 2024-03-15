@@ -19,7 +19,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <widget name="web_ribbon" title="Closed" bg-color="text-bg-danger" invisible="is_opened"/>
                     <div>
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
                         <label for="name"/>
                         <h3>
                             <field name="name"/>
@@ -40,6 +45,11 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <fields name="message_follower_ids"/>
+                    <fields name="activity_ids"/>
+                    <fields name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
@@ -51,6 +61,9 @@
             <search>
                 <field name="name"/>
                 <field name="capacity"/>
+                <filter name="is_department" string="Open Department" domain="[('is_opened','=',True)]"/>
+                <filter name="is_department" string="Closed Department" domain="[('is_opened','!=',True)]"/>
+                <filter name="group_department" string="Departemnt" context="{'group_by': 'is_opened'}"/>
             </search>
         </field>
     </record>

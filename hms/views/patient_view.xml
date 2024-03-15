@@ -3,7 +3,7 @@
         <field name="name">patient view</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree class="header_style">
                 <field name="f_name"/>
                 <field name="l_name"/>
                 <field name="email"/>
@@ -20,8 +20,27 @@
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="actin_undetermined" type="object" class="btn btn-danger" string="Set To Undetermined"
+                            invisible="state == 'undetermined'"/>
+                    <button name="action_good" type="object" class="btn btn-warning" string="Set To Good"
+                            invisible="state != 'undetermined'"/>
+                    <button name="action_fair" type="object" class="btn btn-success" string="Set To Fair"
+                            invisible="state != 'undetermined' and state != 'good'"/>
+                    <button name="action_serious" type="object" class="btn btn-danger" string="Set To Serious"
+                            invisible="state != 'undetermined' and state != 'good' and state != 'fair'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Serious" bg-color="text-bg-secondary" invisible="state != 'serious'"/>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_open_related_doctor" type="object" icon="fa-user" string="Doctor"/>
+                    </div>
                     <div>
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
                         <label for="f_name"/>
                         <h3>
                             <field name="f_name"/>
@@ -38,12 +57,10 @@
                             <field name="doctor_id" groups="hms.manager_group"/>
                         </group>
                         <group string="Additional Information">
-                            <field name="history"/>
                             <field name="cr_ratio"/>
                             <field name="blood"/>
                             <field name="pcr"/>
                             <field name="image"/>
-                            <field name="state"/>
                         </group>
                     </group>
                     <notebook>
@@ -59,7 +76,21 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <fields name="message_follower_ids"/>
+                    <fields name="activity_ids"/>
+                    <fields name="message_ids"/>
+                </div>
             </form>
+        </field>
+    </record>
+    <record id="actin_server_good_state" model="ir.actions.server">
+        <field name="name">Good</field>
+        <field name="model_id" ref="model_hms_patient"/>
+        <field name="binding_model_id" ref="model_hms_patient"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_good()
         </field>
     </record>
     <record id="patient_action" model="ir.actions.act_window">

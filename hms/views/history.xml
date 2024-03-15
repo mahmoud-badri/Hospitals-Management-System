@@ -1,0 +1,45 @@
+<odoo>
+    <record id="history_view_tree" model="ir.ui.view">
+        <field name="name">History view</field>
+        <field name="model">hms.history</field>
+        <field name="arch" type="xml">
+            <tree class="header_style" create="0" edit="0" delete="0">
+                <field name="user_id"/>
+                <field name="patient_id"/>
+                <field name="old_state"/>
+                <field name="new_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="history_view_form" model="ir.ui.view">
+        <field name="name">History form</field>
+        <field name="model">hms.history</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="patient_id"/>
+                            <field name="old_state"/>
+                            <field name="new_state"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="history_action" model="ir.actions.act_window">
+        <field name="name">History</field>
+        <field name="res_model">hms.history</field>
+    </record>
+    <menuitem
+            id="all_history_menu"
+            name="All History"
+            parent="patient_menu"
+            action="history_action"
+    />
+</odoo>
